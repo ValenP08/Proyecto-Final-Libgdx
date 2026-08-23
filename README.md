@@ -19,3 +19,9 @@ Java (Con eclipse), LibGDX, Piskel y Tiled Map Editor. La plataforma será PC.
 
 ## Estado del proyecto:
 Configuración inicial y estructura del proyecto
+
+## Enlace a la wiki:
+Acá se encuentra el enlace a la wiki, con información mucho mas detallada del proyect:
+https://github.com/ValenP08/Proyecto-Final-Libgdx/wiki/Propuesta-del-proyecto-%5BJuego%E2%80%90Tipo%E2%80%90Zelda%5D
+
+## Gracias :)
