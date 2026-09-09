@@ -1,4 +1,4 @@
-# Proyecto de juego similar a Zelda.
+# Adventure Quest.
 
 ## Integrantes:
 -Valentino Porro
