@@ -20,12 +20,13 @@ private static final float WORLD_HEIGHT=9f;
  private final Batch batch;
  private final Texture bgdtexture=new Texture(Gdx.files.internal("BG.png"));
  private final Viewport gameViewport=new ExtendViewport(16f,9f);
- private final Texture playertexture=new Texture(Gdx.files.internal("hola.png"));
-
+ private  final Texture playertexture=new Texture(Gdx.files.internal("AtaqueDelante 1.png"));
+ private final Array<Texture> texturaMovimiento=CargaMovimiento();
+    private final Animation<Texture> Movimiento= new Animation<>(0.1f,texturaMovimiento);
 private final Vector2 inputMovimiento=new Vector2();
 private final Array<Texture> texturaAtaque=CargaAtaque();
 private final Animation<Texture> Ataque= new Animation<>(1/32f,texturaAtaque);
-    private final jugador Jugador=new jugador(WORLD_WIDTH / 2f, WORLD_HEIGHT /2f,gameViewport,playertexture,Ataque);
+    private final jugador Jugador=new jugador(WORLD_WIDTH / 2f, WORLD_HEIGHT /2f,gameViewport,playertexture,Ataque,Movimiento);
 public GameScreen(Juego juego)
  {
 this.juego=juego;
@@ -62,6 +63,9 @@ bgdtexture.setWrap(Texture.TextureWrap.Repeat, Texture.TextureWrap.Repeat);
 
 
 
+
+
+
 	public void resize(int width, int height)
 	{
 	gameViewport.update(width,height,true);
@@ -81,7 +85,8 @@ resetGame();
     private Array<Texture> CargaAtaque()
     {
    var texturas=new Array<Texture>();
-   for(int i=1;i<5;i++)
+
+   for(int i=1;i<=5;i++)
    {
     texturas.add(new Texture(Gdx.files.internal(String.format("AtaqueDelante%2d.png",i))));
    }
@@ -89,6 +94,14 @@ resetGame();
    return texturas;
     }
 
+    private Array<Texture> CargaMovimiento() {
+    var texturas=new Array<Texture>();
+        for(int i=1;i<=6;i++)
+        {
+            texturas.add(new Texture(Gdx.files.internal(String.format("protagonista con espada y escudo adelante%2d.png",i))));
+        }
+        return texturas;
+    }
 
 	@Override
 	public void render(float delta)
@@ -102,9 +115,10 @@ resetGame();
 	batch.begin();
 	drawBackground();
         Jugador.draw(batch);
-    for(Ataque ataque : jugador.getAtaque()){
-      ataque.draw(batch);
-    }
+
+        for(Ataque ataque : jugador.getAtaque()){
+            ataque.draw(batch);
+        }
 
 	batch.end();
 	}

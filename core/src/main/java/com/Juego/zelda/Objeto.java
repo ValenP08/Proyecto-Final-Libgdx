@@ -40,5 +40,13 @@ if(texture==null)
 batch.draw(texture,rectangle.x,rectangle.y,rectangle.width,rectangle.height);
 }
 
+    public void setTexture(Texture texture) {
+        this.texture = texture;
+    }
+    public Texture getTexture(Texture texture) {
+        this.texture = texture;
+        return texture;
+    }
+
 abstract void update(float deltaTime);
 }
