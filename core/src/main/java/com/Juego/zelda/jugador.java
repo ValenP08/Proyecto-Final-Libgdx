@@ -49,14 +49,19 @@ void update(float deltaTime) {
 tiempoAtaque-=deltaTime;
 if(Gdx.input.isButtonJustPressed(Input.Buttons.LEFT) && tiempoAtaque<=0)
 {
+    GameScreen.setMostrarTextura(false);
     var centroJugador=getCenter(TMP_VEC2);
 
     ataque.add(new Ataque(centroJugador,ultimaDireccion,animacionAtaque));
 tiempoAtaque=cooldownAtaque;
+
 }
 
-move(deltaTime);
-
+else if(tiempoAtaque<=0.05f)
+{
+    GameScreen.setMostrarTextura(true);
+    move(deltaTime);
+}
     if(!moveDirection.isZero())
     {
     tiempoMovimiento+=deltaTime;

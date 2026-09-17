@@ -27,6 +27,7 @@ private final Vector2 inputMovimiento=new Vector2();
 private final Array<Texture> texturaAtaque=CargaAtaque();
 private final Animation<Texture> Ataque= new Animation<>(1/32f,texturaAtaque);
     private final jugador Jugador=new jugador(WORLD_WIDTH / 2f, WORLD_HEIGHT /2f,gameViewport,playertexture,Ataque,Movimiento);
+    private static  boolean mostrarTextura=true;
 public GameScreen(Juego juego)
  {
 this.juego=juego;
@@ -114,8 +115,10 @@ resetGame();
 	batch.setProjectionMatrix(gameViewport.getCamera().combined);
 	batch.begin();
 	drawBackground();
-        Jugador.draw(batch);
 
+        if(mostrarTextura==true) {
+            Jugador.draw(batch);
+        }
         for(Ataque ataque : jugador.getAtaque()){
             ataque.draw(batch);
         }
@@ -140,5 +143,10 @@ resetGame();
     bgdtexture.dispose();
     playertexture.dispose();
     texturaAtaque.forEach(Texture::dispose);
+    }
+
+    public static void setMostrarTextura(boolean estado) {
+        mostrarTextura = estado;
+        System.out.println(mostrarTextura);
     }
 }

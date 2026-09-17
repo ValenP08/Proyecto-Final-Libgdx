@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 
 public class Ataque  extends  Objeto{
-private static final float Duracion=0.4f;
+private static final float Duracion=0.6f;
 private static final float SIZE=1f;
 
 private float lifeSpan=Duracion;
