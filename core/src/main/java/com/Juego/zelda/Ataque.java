@@ -37,7 +37,7 @@ public Ataque(Vector2 posicion, Vector2 direccion,  Animation<Texture> animacion
      float duracionAnimacion= animacion.getAnimationDuration();
      float PorcentajeAnimacion= 1f-(Math.max(0f,lifeSpan)/Duracion);
      float stateTime=duracionAnimacion*PorcentajeAnimacion;
-     texture= animacion.getKeyFrame(stateTime,true);
+     setTexture(animacion.getKeyFrame(stateTime,true));
     super.draw(batch);
     }
 

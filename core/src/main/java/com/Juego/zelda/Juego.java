@@ -17,13 +17,14 @@ public class Juego extends Game {
     @Override
     public void create() {
     	batch= new SpriteBatch();
-    	var generator =new FreeTypeFontGenerator(Gdx.files.internal("error.ttf")); 
+    	var generator =new FreeTypeFontGenerator(Gdx.files.internal("error.ttf"));
     	var fontparams= new FreeTypeFontGenerator.FreeTypeFontParameter();
     	fontparams.size=22;
     	fontparams.color=Color.WHITE;
     	font = generator.generateFont(fontparams);
-    	
+
     	generator.dispose();
+
     	setScreen(new ControlsScreen(this));
     }
 
@@ -35,12 +36,12 @@ public class Juego extends Game {
     batch.dispose();
     font.dispose();
     }
-    
+
     public Batch getbatch()
     {
     	return batch;
     }
-    
+
     public BitmapFont getfont()
     {
     	return font;
