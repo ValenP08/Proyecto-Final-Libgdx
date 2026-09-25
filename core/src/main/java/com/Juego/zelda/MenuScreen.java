@@ -52,10 +52,10 @@ public class MenuScreen extends ScreenAdapter {
         return texturas;
     }
 
-
     public void resize(int width, int height) {viewport.update(width,height,true);}
 
     public void render(float delta) {
+        tiempoTitileo++;
         tiempoMovimiento+=delta;
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && opcion == 1) {
             juego.setScreen(new GameScreen(juego));
@@ -93,46 +93,57 @@ public class MenuScreen extends ScreenAdapter {
             if(opcion>1) {
                 opcion--;
                 System.out.println(opcion);
+                tiempoTitileo=100;
             }
         }
         else if(Gdx.input.isKeyJustPressed(Input.Keys.S) || Gdx.input.isKeyJustPressed(Input.Keys.DOWN)){
             if(opcion<4) {
                 opcion++;
                 System.out.println(opcion);
+                tiempoTitileo=100;
             }
         }
         switch(opcion){
             case 1:
                 font.setColor(Color.CORAL);
                 y+=270;
-                layout.setText(font,">INICIAR PARTIDA<");
-                font.draw(batch,layout,centrox - layout.width/2,y);
+                if(tiempoTitileo>100 && tiempoTitileo<200) {
+                    layout.setText(font, ">INICIAR PARTIDA<");
+                    font.draw(batch, layout, centrox - layout.width / 2, y);
+                }
                 break;
 
             case 2:
                 font.setColor(Color.CORAL);
                 y+=180;
-                layout.setText(font,">CARGAR PARTIDA<");
-                font.draw(batch,layout,centrox - layout.width/2,y);
+                if(tiempoTitileo>100 && tiempoTitileo<200) {
+                layout.setText(font, ">CARGAR PARTIDA<");
+                font.draw(batch, layout, centrox - layout.width / 2, y);
+            }
                 break;
 
             case 3:
                 font.setColor(Color.CORAL);
                 y+=90;
-                layout.setText(font,">OPCIONES<");
-                font.draw(batch,layout,centrox - layout.width/2,y);
-
+                if(tiempoTitileo>100 && tiempoTitileo<200) {
+                layout.setText(font, ">OPCIONES<");
+                font.draw(batch, layout, centrox - layout.width / 2, y);
+            }
                 break;
             case 4:
                 font.setColor(Color.CORAL);
-                layout.setText(font,">SALIR<");
-                font.draw(batch,layout,centrox - layout.width/2,y);
+                if(tiempoTitileo>100 && tiempoTitileo<200) {
+                    layout.setText(font, ">SALIR<");
+                    font.draw(batch, layout, centrox - layout.width / 2, y);
+                }
                 if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
                     Gdx.app.exit();
                 }
                 break;
         }
-
+        if(tiempoTitileo>=200){
+            tiempoTitileo=0;
+        }
 
         batch.end();
     }

@@ -68,7 +68,7 @@ public class StartScreen extends ScreenAdapter {
          return;
         }
 
-        tiempoMovimiento+=deltaTime;
+                tiempoMovimiento+=deltaTime;
         ScreenUtils.clear(Color.BLACK);
         float u2=gameViewport.getWorldWidth() / WORLD_WIDTH;
         float v2=gameViewport.getWorldHeight() / WORLD_HEIGHT;
@@ -82,11 +82,9 @@ public class StartScreen extends ScreenAdapter {
 
         font.getData().setScale(2);
         y-=500;
-        layout.setText(font," Presione [ESPACIO] para continuar");
-        font.draw(batch, layout, centrox - layout.width / 2 + 450,  y);
-
+            layout.setText(font, " Presione [ESPACIO] para continuar");
+            font.draw(batch, layout, centrox - layout.width / 2 + 450, y);
         font.getData().setScale(1);
-
         batch.end();
     }
 

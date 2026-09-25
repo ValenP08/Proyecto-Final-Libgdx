@@ -196,9 +196,13 @@ resetGame();
             ataque.draw(batch);
         }
 
-
-
         batch.end();
+        if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE))
+        {
+            juego.setScreen(new MenuScreen(juego));
+            dispose();
+            return;
+        }
 	}
 
     private void updateLogic(float delta) {
